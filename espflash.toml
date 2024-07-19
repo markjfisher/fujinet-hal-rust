@@ -1,5 +1,5 @@
 #baudrate = 115200
-bootloader = "target/xtensa-esp32s3-espidf/release/bootloader.bin"
+bootloader = "target/bootloader.bin"
 
 [connection]
 serial = "/dev/ttyUSB0"
