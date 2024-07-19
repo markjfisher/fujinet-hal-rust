@@ -22,3 +22,6 @@ CRATE_CC_NO_DEFAULTS = "1"
 #CARGO_WORKSPACE_DIR = { value = "", relative = true }
 
 ESP_IDF_SDKCONFIG_DEFAULTS = { value = "sdkconfig.defaults;sdkconfig.defaults.esp32s3" }
+
+# Custom logging level, from "OFF", "ERROR", "WARN", "INFO", "DEBUG", "TRACE"
+ESP_LOGLEVEL = "INFO"
