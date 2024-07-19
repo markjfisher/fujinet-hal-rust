@@ -1,7 +1,7 @@
-use std::str::FromStr;
-use lazy_static::lazy_static;
-use log::{LevelFilter};
 use crate::esp_systime::AppEspSystemTime;
+use lazy_static::lazy_static;
+use log::LevelFilter;
+use std::str::FromStr;
 
 pub(crate) struct EspLogger;
 
@@ -34,8 +34,8 @@ impl log::Log for EspLogger {
 
         let (color, lvl) = match record.level() {
             log::Level::Error => (RED, "E"),
-            log::Level::Warn =>  (GREEN, "W"),
-            log::Level::Info =>  (YELLOW,"I"),
+            log::Level::Warn => (GREEN, "W"),
+            log::Level::Info => (YELLOW, "I"),
             log::Level::Debug => (BLUE, "D"),
             log::Level::Trace => (CYAN, "T"),
         };
@@ -53,7 +53,5 @@ lazy_static! {
 pub fn init() -> Result<(), log::SetLoggerError> {
     let log_level_str = ESP_LOGLEVEL.unwrap_or("INFO");
     let log_level = LevelFilter::from_str(&log_level_str).unwrap_or(LevelFilter::Info);
-    unsafe {
-        log::set_logger_racy(&EspLogger).map(|()| log::set_max_level_racy(log_level))
-    }
+    unsafe { log::set_logger_racy(&EspLogger).map(|()| log::set_max_level_racy(log_level)) }
 }

@@ -1,5 +1,5 @@
-use std::time::Duration;
 use esp_idf_svc::sys::{gettimeofday, timeval};
+use std::time::Duration;
 
 pub struct AppEspSystemTime;
 

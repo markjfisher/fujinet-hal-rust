@@ -4,7 +4,6 @@ mod esp_systime;
 use std::thread;
 use std::time::Duration;
 
-
 fn main() {
     esp_idf_svc::sys::link_patches();
     esp_log::init().expect("Failed to initialize the logger.");
@@ -16,5 +15,4 @@ fn main() {
     log::error!("gremlins at work");
     log::debug!("get that debug printed!");
     log::trace!("get that trace printed!");
-
 }
