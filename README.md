@@ -44,3 +44,5 @@ git submodule add -- https://github.com/joltwallet/esp_littlefs.git components/e
 git add -A
 git commit -m 'Add esp_littlefs submodule'
 ```
+
+See https://github.com/esp-rs/esp-idf-sys/pull/114#issuecomment-1207168854 for how to setup rust with littlefs.

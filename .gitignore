@@ -2,5 +2,7 @@
 /.embuild
 /target
 /Cargo.lock
-.idea/
-.pio/
+/.idea
+/.pio
+
+components_*.lock
