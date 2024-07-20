@@ -1,4 +1,4 @@
-use crate::esp_systime::AppEspSystemTime;
+use crate::systime::AppEspSystemTime;
 use lazy_static::lazy_static;
 use log::LevelFilter;
 use std::str::FromStr;
@@ -11,7 +11,8 @@ pub(crate) struct EspLogger;
  * T/D/I/W/E (time) - Message
  *
  * It uses value from envioronment value ESP_LOGLEVEL to configure the default minimum logging level, defaulting to INFO if unset.
- * This does not use the ESP logging framework, which is turned off in sdkconfig.defaults (or rather the level is set to ERROR).
+ * This does not use the ESP logging framework, which is turned off in sdkconfig.defaults (or rather the level is set to ERROR)
+ * which makes it start up incredibly fast, as all the default esp-idf logging is turned off.
  */
 
 const ESP_LOGLEVEL: Option<&'static str> = option_env!("ESP_LOGLEVEL");

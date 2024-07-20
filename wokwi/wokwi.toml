@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+elf = '../target/xtensa-esp32s3-espidf/debug/fujinet-hal-rust'
+firmware = '../target/xtensa-esp32s3-espidf/debug/fujinet-hal-rust.bin'

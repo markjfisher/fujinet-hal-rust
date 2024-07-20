@@ -1,12 +1,14 @@
-mod esp_log;
-mod esp_systime;
+mod logger;
+mod platform;
+mod systime;
 
 use std::thread;
 use std::time::Duration;
 
 fn main() {
-    esp_idf_svc::sys::link_patches();
-    esp_log::init().expect("Failed to initialize the logger.");
+    // do platform specific initialisation
+    platform::init_platform();
+    logger::init().expect("Failed to initialize the logger.");
 
     log::info!("will this work?");
     thread::sleep(Duration::from_millis(22));

@@ -7,7 +7,6 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 DO_BUILD=0
 DO_CLEAN=0
 DO_FLASH=0
-EXECUTE_APP=0
 IS_RELEASE=0
 SHOW_MONITOR=0
 
@@ -16,12 +15,11 @@ TARGET="debug"
 
 function show_help {
   echo "Usage: $(basename $0) [options]"
-  echo " -b          # run build"
+  echo " -b          # build project"
   echo " -c          # clean project"
-  echo " -f          # flash device"
-  echo " -m          # run monitor"
-  echo " -r          # make release build (default debug)"
-  echo " -x          # execute application"
+  echo " -m          # monitor device"
+  echo " -r          # release build (default debug)"
+  echo " -u          # upload (flash) device"
   exit 1
 }
 
@@ -30,15 +28,14 @@ if [ $# -eq 0 ] ; then
   show_help
 fi
 
-while getopts "bcfhmrx" flag
+while getopts "bchmru" flag
 do
   case "$flag" in
     b) DO_BUILD=1 ;;
     c) DO_CLEAN=1 ;;
     m) SHOW_MONITOR=1 ;;
-    f) DO_FLASH=1 ;;
     r) IS_RELEASE=1 ;;
-    x) EXECUTE_APP=1 ;;
+    u) DO_FLASH=1 ;;
     h) show_help ;;
     *) show_help ;;
   esac
@@ -69,8 +66,4 @@ fi
 
 if [ $SHOW_MONITOR -eq 1 ] ; then
   cargo espflash monitor
-fi
-
-if [ $EXECUTE_APP -eq 1 ] ; then
-  cargo run ${RELEASE_STRING}
 fi

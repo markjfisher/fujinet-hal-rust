@@ -4,7 +4,7 @@ use std::time::Duration;
 pub struct AppEspSystemTime;
 
 impl AppEspSystemTime {
-    // static version of systime version
+    // static version of systime version of EspSystemTime for efficiency
     pub fn now() -> Duration {
         let mut tv_now: timeval = Default::default();
         unsafe {
