@@ -3,7 +3,10 @@ mod platform;
 mod systime;
 
 use esp_idf_hal::delay::FreeRtos;
-use esp_idf_hal::sys::{gpio_mode_t_GPIO_MODE_OUTPUT, gpio_num_t_GPIO_NUM_38, gpio_reset_pin, gpio_set_direction, gpio_set_level};
+use esp_idf_hal::sys::{
+    gpio_mode_t_GPIO_MODE_OUTPUT, gpio_num_t_GPIO_NUM_38, gpio_reset_pin, gpio_set_direction,
+    gpio_set_level,
+};
 
 fn main() {
     // do platform specific initialisation
